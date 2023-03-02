@@ -1,0 +1,54 @@
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# Contracts env file
+contracts.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Mypy cache
+.mypy_cache
+
+# Virtualenv generated info
+venv/
+
+# Generated from alembic
+*.egg-info/
+
+# Do not commit contract updates
+contract_config.ini
+eth_contract_config.ini
+
+# Ignore redis generated files
+*.rdb
+
+# Ignore celery generated files
+*.db
+celerybeat*
+logs/*.log
+logs/*/
+
+.pytest_*
+
+# Coverage related files
+.coverage
+cov_html/*
+
+*.tar.bz2
+
+build/
+
+# redis dumps
+*_dump
+
+# build in service-commands up
+compose/env/tmp*/
+
+.python-version
+
+*.tsbuildinfo
+es-indexer/.env

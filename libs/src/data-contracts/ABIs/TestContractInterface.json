@@ -1,0 +1,20 @@
+{
+  "contractName": "TestContractInterface",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_x",
+          "type": "uint256"
+        }
+      ],
+      "name": "setX",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+}

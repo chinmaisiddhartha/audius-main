@@ -1,0 +1,518 @@
+{
+  "contractName": "SocialFeatureFactory",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_registryAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_socialFeatureStorageRegistryKey",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_userFactoryRegistryKey",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_trackFactoryRegistryKey",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_playlistFactoryRegistryKey",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_networkId",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_playlistId",
+          "type": "uint256"
+        }
+      ],
+      "name": "PlaylistRepostAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_playlistId",
+          "type": "uint256"
+        }
+      ],
+      "name": "PlaylistRepostDeleted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_trackId",
+          "type": "uint256"
+        }
+      ],
+      "name": "TrackRepostAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_trackId",
+          "type": "uint256"
+        }
+      ],
+      "name": "TrackRepostDeleted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_followerUserId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_followeeUserId",
+          "type": "uint256"
+        }
+      ],
+      "name": "UserFollowAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_followerUserId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_followeeUserId",
+          "type": "uint256"
+        }
+      ],
+      "name": "UserFollowDeleted",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "kill",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "_registryAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setRegistry",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "usedSignatures",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_trackId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_requestNonce",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_subjectSig",
+          "type": "bytes"
+        }
+      ],
+      "name": "addTrackRepost",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_playlistId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_requestNonce",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_subjectSig",
+          "type": "bytes"
+        }
+      ],
+      "name": "addPlaylistRepost",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_trackId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_requestNonce",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_subjectSig",
+          "type": "bytes"
+        }
+      ],
+      "name": "deleteTrackRepost",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_playlistId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_requestNonce",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_subjectSig",
+          "type": "bytes"
+        }
+      ],
+      "name": "deletePlaylistRepost",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_followerUserId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_followeeUserId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_requestNonce",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_subjectSig",
+          "type": "bytes"
+        }
+      ],
+      "name": "addUserFollow",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "status",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_followerUserId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_followeeUserId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_requestNonce",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_subjectSig",
+          "type": "bytes"
+        }
+      ],
+      "name": "deleteUserFollow",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "status",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_trackId",
+          "type": "uint256"
+        }
+      ],
+      "name": "userRepostedTrack",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_userId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_playlistId",
+          "type": "uint256"
+        }
+      ],
+      "name": "userRepostedPlaylist",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}

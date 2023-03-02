@@ -1,0 +1,20 @@
+{{#hasImports}}
+{{#imports}}
+import {
+    {{{.}}},
+    {{.}}FromJSON,
+    {{.}}FromJSONTyped,
+    {{.}}ToJSON,
+} from './{{.}}';
+{{/imports}}
+
+{{/hasImports}}
+{{#discriminator}}
+import {
+{{#discriminator.mappedModels}}
+     {{modelName}}FromJSONTyped{{^-last}},{{/-last}}
+{{/discriminator.mappedModels}}
+} from './';
+
+{{/discriminator}}
+{{>modelGenericInterfaces}}

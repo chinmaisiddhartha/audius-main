@@ -1,0 +1,73 @@
+{
+  "contractName": "RegistryInterface",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_name",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_version",
+          "type": "uint256"
+        }
+      ],
+      "name": "getContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_name",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_name",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getContractVersionCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}

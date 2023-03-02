@@ -1,0 +1,46 @@
+{
+  "contractName": "PlaylistFactoryInterface",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_caller",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_playlistId",
+          "type": "uint256"
+        }
+      ],
+      "name": "callerOwnsPlaylist",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_playlistId",
+          "type": "uint256"
+        }
+      ],
+      "name": "playlistExists",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}
